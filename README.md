@@ -16,7 +16,7 @@ docker run --rm -it -v ./:/dummy/blueprint/src -w /dummy ananas:1
 ```
 The compiled website can be served by
 ```
-docker run --rm -it -p 8082:80 -v .build/web:/usr/share/nginx/html:ro nginx
+docker run --rm -it -p 8082:80 -v ./build/web:/usr/share/nginx/html:ro nginx
 ```
 which will be accesible at
 [http://localhost:8082/](http://localhost:8082/).
