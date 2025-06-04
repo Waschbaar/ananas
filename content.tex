@@ -1,0 +1,72 @@
+% In this file you should put the actual content of the blueprint.
+% It will be used both by the web and the print version.
+% It should *not* include the \begin{document}
+%
+% If you want to split the blueprint content into several files then
+% the current file can be a simple sequence of \input. Otherwise It
+% can start with a \section or \chapter for instance.
+
+\chapter{homological algebra conventions}
+\section{My proposal}
+My preference would be calling any differential $\mathbb{Z}$-graded object by chain complex.
+Chain complex can be indexed by either homological or cohomological indices,
+with the convention that homological indices appear on the lower right corner
+and cohomological indices appear on the upper right corner.
+Instead of above and below, always say left and right with the convention that differentials
+point to the right.
+\section{To avoid confusion}
+always say if an index is homological or cohoimological if it's not absolutely clear.
+\subsection{just a test of subsection}
+
+\chapter{test some references}
+The glorious \cite{condensed} and \cite{analytic}!
+\section{Videos}
+We only have \cite{ihesvid}. Rectify it!
+
+\chapter{definition}
+
+See if the definition works.
+
+\begin{definition}
+\label{affine::def::with_animated_rings}
+A \emph{pre-analytic animated ring} $ A $ is a pair $ (A ^{\huflag}, \D(A)) $ where $ A ^{\huflag} $ is a condensed animated ring and
+$ \D (A) $ a full subcategory of $ \D (A ^{\huflag}) $ satisfying the following conditions:
+
+\begin{enumerate}
+\item The inclusion functor $ \D (A)\to \D (A ^{\huflag}) $ has a left adjoint, which we denote by $ -\dten _{A ^{\huflag}} A $,
+and a right adjoint, which we denote by $ \rhoms _{A ^{\huflag}}(A, -) $;
+\item If $ M,N $ are some objects of $ \D (A ^{\huflag}) $ such that $ N $ is in $\D (A) $, then $ \rhoms _{A ^{\huflag}} (M, N) $ lies in $ \D (A) $;
+\item The functor $ -\dten _{A ^{\huflag}} A $, composed with the inclusion, takes $ \D ^{\leq 0}(A ^{\huflag}) $ to $ \D ^{\leq 0}(A ^{\huflag}) $;
+\end{enumerate}
+A pre-analytic animated ring $ (A ^{\huflag}, \D (A)) $ is called an \emph{analytic animated ring} if
+the object $ A ^{\huflag} $ lies in $ \D (A) $.
+
+A morphism of (pre-)analytic animated rings $ A\to B $ is a morphism $ f: A ^{\huflag}\to B ^{\huflag} $ of condensed animated rings such that when
+$ M\in \D (B ^{\huflag}) $ lies in $ \D (B) $, the restriction of scalars $ M \in D (A ^{\huflag}) $ lies in $ \D (A) $.
+\end{definition}
+
+\section{test the dependency graph}
+This is a remark but let's pretent that it's a lemma.
+\begin{lemma}
+\label{affine::def::compare_with_videos}
+\uses{affine::def::with_animated_rings}
+Instead of requiring the inclusion functor to have both left and right adjoints,
+Clausen and Scholze require it to commute with all limits and colimits.
+The two are equivalent in view of the reflection principle,
+which is proved in \cite{adamek_reflections_1989} for ordinary categories and in \cite{ragimov_infty-categorical_2022} for $ \infty $-categories.
+
+Indeed, when the subcategory $ \D (A) $ is closed under arbitrary limits and colimits,
+the reflection principle implies that the inclusion functor $ \D (A)\to \D (A ^{\huflag}) $
+has a left adjoint and that the subcategory
+$ \D (A) $ is presentable.
+Then the adjoint functor theorem between presentable $ \infty $-categories implies the existence of the right adjoint.
+Conversely, if the inclusion functor has both left and right adjoints, then the subcategory is presentable as
+a localization of a presentable $ \infty $-category. Then it has all limits and colimits,
+which are taken to limits and colimits in $ \D (A) $ since the inclusion functor
+is both a left and a right adjoint.
+
+The definition of Clausen and Scholze is certainly more natural.
+However I decide to bake the adjoints into the definition for the peace of mind
+even though I failed to avoid invoking the reflection principle (and the adjoint functor theorem) in the sequel.
+\end{lemma}
+

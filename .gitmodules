@@ -1,0 +1,3 @@
+[submodule "container/dummy"]
+	path = container/dummy
+	url = https://github.com/pitmonticone/LeanProject.git
