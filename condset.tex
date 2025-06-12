@@ -1,0 +1,74 @@
+\section{Condensed Sets}
+
+\subsection{Profinite sets}
+
+Warning: profinite set is redefined here. Classical profinite sets will be called heavy profinite sets.
+
+Condensed sets are designed to capture convergence.
+Profinite sets are the building blocks. They serve as blueprints for different convergence procedures.
+Loosely a profinite set is a formal $ \mathbb{N}\opcat $-indexed limit of finite sets.
+The formal limit is made precise by the free cocompletion.
+\begin{definition}
+The category of profinite sets, denoted by $ \profi $,
+is defined to be the strictly full subcategory of $ \psh (\mathsf{Fin} \opcat)\opcat $ spanned by
+the $ \mathbb{N}\opcat $-indexed colimits of objects in the Yoneda image,
+where $ \mathsf{Fin} $ is the category of finite sets.
+
+A profinite set is called finite if it is isomorphic to an object in the Yoneda image.
+\end{definition}
+
+\begin{proposition}
+The category $ \profi $ is closed under countable limits and finite coproducts in $ \psh (\mathsf{Fin} \opcat)\opcat $.
+In particular, $ \profi $ has countable limits and finite coproducts.
+\end{proposition}
+
+\begin{proof}
+
+\end{proof}
+
+A profinite set is to be thought of as an $ \mathbb{N}\opcat $-indexed limit diagram of finite sets.
+If $ \mathcal{C} $ is a category with countable limits, then a fucntor $ \mathsf{Fin}\to \mathcal{C} $
+can be extended to a functor $ \profi\to \mathcal{C} $ by taking the limit of the diagram in $ \mathcal{C} $.
+The precise formulation for $ \mathcal{C} = \mathsf{Set} $ is:
+
+\begin{lemma}
+There is a unique faithful functor $ \profi \to \mathsf{Set} $ that commutes with countable limits
+and sends a finite profinite set $ S $ to the set $ S $.
+\label{profi::forgetful-to-set}
+\end{lemma}
+
+\begin{proof}
+
+\end{proof}
+
+\begin{definition}
+The functor $ \profi \to \mathsf{Set} $ constructed in the Lemma \ref{profi::forgetful-to-set} is called the forgetful functor
+and denoted by $ \mathsf{Set}(-) $.
+\end{definition}
+
+\begin{proposition}
+Let $ f: X\to Y $ be a morphism in $ \profi $. The followings are equivalent:
+\begin{enumerate}
+\item $ \mathsf{Set}(f): \mathsf{Set}(X)\to \mathsf{Set}(Y) $ is surjective;
+\item there is a profinite set $ X _{1} $ and two morphisms $ d _{0}, d _{1}: X _{1}\to X $ such that $ Y $ is the coequalizer of $ d _{0}, d _{1} $;
+\item $ Y $ is the coequalizer of the two projection morphisms $ X \times _{Y} X \to X $.
+\end{enumerate}
+\label{profi::surj::conditions}
+\end{proposition}
+
+\begin{definition}
+A morphism $ f:X\to Y $ in $ \profi $ is called surjective if the equivalent conditions in Proposition \ref{profi::surj::conditions} hold.
+\end{definition}
+
+\begin{proposition}
+Let $ \{X _{i}\} $ be an $ \mathbb{N} \opcat$-index diagram of profinite sets where all transition maps $ X _{j}\to X _{i},j\geq i $ are surjective.
+Then the structural maps $ \lim _{i} X _{i} \to X _{i} $ are surjective.
+\end{proposition}
+
+\begin{definition}
+A morphism $ f: X\to Y $ of profinite sets is called a closed immersion if the diagonal $ X\to X\times _{Y} X $ is an isomorphism.
+If $ f:X\to Y $ is a closed immersion, then $ X $ is said to be a closed sub-(profinite set) by $ f $,
+or just a closed sub-(profinite set) if the morphism $ f $ is clear from context.
+\end{definition}
+
+
