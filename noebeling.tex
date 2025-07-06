@@ -1,0 +1,251 @@
+\subsection{Nöbeling's Theorem}
+
+\begin{lemma}
+\label{condensed:profinite:inj-in-prod-f2}
+If $ S $ is a profinite set, then the continuous map
+$ S\to \prod _{f\in \mathrm{Cont}(S, \mathbb{F}_{2})} \mathbb{F}_{2} $
+determined by the maps $ f\in \mathrm{Cont}(S, \mathbb{F}_{2}) $ is injective.
+\end{lemma}
+
+\begin{proof}
+Suppose that $ x, y\in S $ are distinct points.
+Since $ S $ is Hausdorff, there is an open neighbourhood $ U $ of $ x $ that does not contain $ y $.
+But $ S $ is also totally disconnected, so $ U $ contains a clopen neighbourhood $ V $ of $ x $ that does not contain $ y $.
+The map $ g: S\to \mathbb{F}_{2} $ sending $ V $ to $ 0 $ and $ S\backslash V $ to $ 1 $ is a continuous
+map that separates $ x $ and $ y $.
+Thus the image of $ x, y $ in $ \prod _{f\in \mathrm{Cont}(S, \mathbb{F}_{2})} \mathbb{F}_{2} $ has different
+values at coordinate $ g $.
+\end{proof}
+
+\begin{lemma}
+\label{condensed:profinite:extend-loc-const-from-closed}
+Suppose that $ S $ is a profinite set, $ T\subset S $ a closed subset and $ M $ a discrete topological space.
+Then the map $ \mathrm{Cont}(S, M)\to \mathrm{Cont}(T, M) $
+given by precomposition with the inclusion map is surjective. 
+\end{lemma}
+
+\begin{proof}
+Fix a continuous map $ f: T\to M $.
+Since $ T $ is compact and $ M $ is discrete, the image $ f (T)\subset M $ is finite.
+Let $ T _{1}, \ldots, T _{n} $ be a partition of $ T $ such that $ f $ is constant on each of $ T _{i} $.
+Each of $ T _{i} $ is closed in $ T $ and thus closed in $ S $.
+Applying Lemma \ref{preliminary:topology:separate-compact-and-compact-in-profinite} $ n $-times
+gives pairwise disjoint clopen subsets $ W _{1},\ldots, W _{n} $ of $ S $ such that $ T _{i}\subset W _{i} $ for each $ i $.
+Define $ \tilde{f} $ as follows: if $ x\in W _{i} $ then $ \tilde{f}(x) = f (y) $ for some $ y\in T _{i}  $;
+if $ x $ does not belong to any $ W _{i} $ then $ \tilde{f}(x) = f (y) $ for some $ y \in T _{1} $.
+As every $ W _{i} $ is clopen, $ \tilde{f} $ is a continuous map from $ S $ to $ M $.
+By construction $ \tilde{f} $ restricts to $ f $ on $ T $.
+\end{proof}
+
+\begin{theorem}
+\label{profinite:noebeling}
+If $ S $ is a profinite set, then the abelian group $ \mathrm{Cont}(S, \mathbb{Z}) $ is free.
+\end{theorem}
+
+\begin{proof}
+In the proof the sets $ \mathrm{Cont}(-, \mathbb{Z}) $ will be equipped with the ring structures of pointwise ring operations.
+Ordinals refer to the von Neumann ordinals. In particular the elements of an ordinal are (exactly instead of up to bijection) the smaller ordinals.
+
+\textbf{Step 1: Construct the candidate for a basis.}
+Suppose that $ \lambda $ is an ordinal and $ T $ is a closed subspace of the profinite set
+$ \prod _{i\in \lambda} \{0, 1\} $.
+For all ordinal $ \mu < \lambda $ denote by $ e _{\lambda, T, \mu} $ the continuous map $ T\to \mathbb{Z} $
+the composition of the inclusion $ T\to \prod _{i\in \lambda} \{0, 1\} $,
+the projection $ \prod _{i\in \lambda} \{0, 1\} \to \{0, 1\} $ at coordinate $ \mu $
+and the inclusion $ \{0, 1\}\to \mathbb{Z} $.
+%The map $ e _{\lambda, T, \mu} $ is an idempotent in the ring $ \mathrm{Cont}(T, \mathbb{Z}) $.
+
+Let $ \mathcal{S}(\lambda) $ denote the set of finite sequences of ordinals of the form
+$ \lambda > \mu _{1} > \mu _{2} > \cdots > \mu _{r} $. The case $ r = 0 $ is also allowed.
+The set $ \mathcal{S}(\lambda) $ is ordered lexicographically. More precisely,
+a sequence $ (\mu _{1}, \ldots, \mu _{r}) $ is defined to be greater than another sequence $ (\mu' _{1}, \ldots, \mu'_{r'}) $
+if and only if either there is a number $ 1\leq i\leq \min \{r, r'\}$ such that $ \mu _{j} = \mu'_{j} $ for all $ j < i $
+and $ \mu _{i} > \mu'_{i} $, or $ r>r' $ and $ \mu _{j} = \mu'_{j} $ for all $ 1\leq j\leq r' $.
+Observe that
+for $ \mu \leq \lambda $, $ \mathcal{S}(\mu)\subset \mathcal{S}(\lambda) $.
+Moreover, if $ s\in \mathcal{S}(\lambda) \backslash \mathcal{S}(\mu) $ and
+$ s'\in \mathcal{S}(\mu) $, then $ s > s' $.
+Thus if $ s\in \mathcal{S}(\mu) $, then the sets $ \{s'\in \mathcal{S}(\lambda), s' < s\} $
+and $ \{s'\in \mathcal{S}(\mu), s'<s\} $ are equal.
+
+For every sequence $ (\mu _{1}, \ldots, \mu _{r})\in \mathcal{S}(\lambda) $, define
+$ E _{\lambda, T, (\mu _{1}, \ldots, \mu _{r})} $ to be the product
+$ e _{\lambda, T, \mu _{1}}\cdots e _{\lambda, T, \mu _{r}} $ in $ \mathrm{Cont}(T, \mathbb{Z}) $.
+If $ r = 0 $ then $ E _{\lambda, T, ()} $ is defined to be $ 1 $.
+Let $ \mathcal{S}'(\lambda, T) $ be the subset of $ \mathcal{S}(\lambda) $ consisting of
+sequences $ (\mu _{1}, \ldots, \mu _{r}) $ that satisfies the following condition:
+the element $ E _{\lambda, T, (\mu _{1}, \ldots, \mu _{r})} $ does not lie in the $ \mathbb{Z} $-linear span of the set
+$ \{E _{\lambda, T, s}\}_{s\in \mathcal{S}(\lambda), s < (\mu _{1}, \ldots, \mu _{r})} $.
+(By convention the $ \mathbb{Z} $-linear span of the empty set is $ \{0\} $.)
+Define the set $ \mathscr{E}_{\lambda, T} $ to be $ \{E _{\lambda, T, s} \mid s\in \mathcal{S}'(\lambda, T)\} $.
+By construction the set $ \mathscr{E}_{\lambda, T} $ is in bijection with $ \mathcal{S}'(\lambda, T) $.
+
+Let $ \mu \leq \lambda $ be an ordinal and $ T _{\mu} $ be the image of $ T $ under the projection
+$ \prod _{\nu < \lambda} \{0, 1\} \to \prod _{\nu < \mu} \{0, 1\} $.
+Composition with the surjection $ T\to T _{\mu} $ is an
+injective ring homomorphism $ \mathrm{Cont}(T _{\mu}, \mathbb{Z})\to \mathrm{Cont}(T, \mathbb{Z}) $.
+If $ \nu\leq \mu $, then the image of $ e _{\mu, T _{\mu}, \nu} $ in $ \mathrm{Cont}(T, \mathbb{Z}) $
+is $ e _{\lambda, T _{\mu}, \nu} $, which is equal to $ e _{\lambda, T, \nu} $ since the composition of
+$ T\to \prod _{\lambda} \{0, 1\} $ and the projection to coordinate $ \nu $ factors through
+the composition of $ T _{\mu} \to \prod _{\mu} \{0, 1\} $ and the projection to coordinate $ \nu $.
+Therefore for all $ s\in \mathcal{S}(\mu) $, the image of $ E _{\mu, T _{\mu}, s} $ in $ \mathrm{Cont}(T, \mathbb{Z}) $
+is $ E _{\lambda, T, s} $.
+Moreover, for any $ s\in \mathcal{S}(\mu) $, the equality $ \{s'\in \mathcal{S}(\lambda), s'<s\} = \{s'\in \mathcal{S}(\mu), s'<s\} $
+together with the injectivity of $ \mathrm{Cont}(T _{\mu}, \mathbb{Z})\to \mathrm{Cont}(T, \mathbb{Z}) $
+implies that $ s\in \mathcal{S}'(\mu, T _{\mu}) $ if and only if $ s\in \mathcal{S}'(\lambda, T) $.
+In particular, the image of $ \mathscr{E}_{\mu, T _{\mu}} $ in $ \mathrm{Cont}(T, \mathbb{Z}) $
+is a subset of $ \mathscr{E}_{\lambda, T} $.
+
+\textbf{Step 2: Transfinite induction.}
+Let $ \mathscr{P}(\lambda, T) $ be the statement
+\begin{center}
+$ \mathscr{E}_{\lambda, T} $ is a basis of $ \mathrm{Cont}(T, \mathbb{Z}) $.
+\end{center}
+The statements $ \mathscr{P}(\lambda, T) $ are proved by the following transfinite induction on $ \lambda $.
+
+\textbf{Step 2.1: Base case.}
+If $ \lambda = 0 $ then $ T $ is either empty or one point.
+If $ T $ is empty then $ \mathrm{Cont}(T, \mathbb{Z}) = 0 $.
+The set $ \mathscr{E}_{0, T} $ is empty, a basis for $ 0 $.
+If $ T $ is a point then $ \mathscr{E}_{0, T} $ is $ \{1\} $, constituting a basis in
+$ \mathrm{Cont}(T, \mathbb{Z}) \simeq \mathbb{Z} $.
+
+\textbf{Step 2.2: Limit case.}
+Suppose that $ \lambda $ is a limiting ordinal.
+The abelian group $ \mathrm{Cont}(T, \mathbb{Z}) $ is the directed union of the abelian groups $ \mathrm{Cont}(T _{\mu}, \mathbb{Z}) $ for $ \mu < \lambda $,
+and each of the strcutural maps $ \mathrm{Cont}(T _{\mu}, \mathbb{Z})\to \mathrm{Cont}(T, \mathbb{Z}) $
+sends $ \mathscr{E}_{\mu, T _{\mu}} $ to a subset of $ \mathscr{E}_{\lambda, T} $.
+The induction hypothesis implies that for each $ \mu $, the set $ \mathscr{E}_{\mu, T _{\mu}} $ is a basis of $ \mathrm{Cont}(T _{\mu}, \mathbb{Z}) $.
+Thus $ \mathscr{E}_{\lambda, T} $ is a basis of $ \mathrm{Cont}(T, \mathbb{Z}) $.
+
+\textbf{Step 2.3: Successor case.}
+Suppose that $ \lambda = \rho + 1 $ is a successor ordinal.
+The map $ T\to \prod _{\lambda} \{0, 1\}\simeq \prod _{\rho}\{0, 1\} \times \{0, 1\} $
+factors through $ T _{\rho} \times \{0, 1\} $, giving a continuous injection $ T\to T _{\rho}\times \{0, 1\} $.
+Define $ T ^{i} $ to be set $ T\cap T _{\rho}\times \{i\} $ for $ i = 0, 1 $,
+and $ T ^{i}_{\rho} $ the respective images in $ T _{\rho} $.
+Observe that the maps $ T ^{i}\to T ^{i}_{\rho} $ are homeomorphisms and thus $ T \simeq T ^{0}_{\rho} \coprod T ^{1}_{\rho} $.
+
+Let $ U $ be the intersection $ T ^{0}_{\rho}\cap T ^{1}_{\rho} $.
+The situation can be summarized in the following commutative diagram
+\begin{center}
+% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZARgBoAGAXVJADcBDAGwFcYkQAVAPWHIF8AOgIDGENACdoAAm7BifEH1LpMufIRQAmCtTpNW7DouUgM2PASIBmHTQYs2iEEInQA+sCEBbZgB4hjPReAEZQ9HxSQrykxEIKSirm6tYxuvYGTi6SUB7efkLiABYQEVHkMXHGiWqWWql2+o6cuQJFJVWmqhYaJPV6DoY8-C1tgiJi2TI88iPF8SZmNT3lxGmN7ACqirowUADm8ESgAGaSXkjlIDgQSACsNIHBMIwACl3JTuJYe4U4IA0DTICbBeGAARw6pwg50QZCuN0QABYaIUYPQoOwcAB3CCo9EIBIgKEw7TwpA2EB4jFObG4tFQAkmYlIOHXJCknD0LCMdjFCAAa0hZyQyLJiApnO5vIgAqF0LuNDZSJR9MxOKpjJOwsQlyVcPSTSEIPBcphADZFQj7iBGFgwE04BBbRiVeikGBmIxGIquTynHzBTQ4IUsMc-rDCczEBaxdbJX7KTLAyAnmBqZdg6HwwBaeSUPhAA
+\begin{tikzcd}
+                                                           & T^{0}\coprod T^{1} \arrow[d, "\simeq"'] \arrow[r, "\simeq"] & T \arrow[d, two heads] \arrow[r, hook] & {\prod_{\mu<\lambda} \{0,1\}} \arrow[d, two heads] \\
+U \arrow[r, hook, shift right] \arrow[r, hook, shift left] & T^{0}_{\rho}\coprod T^{1}_{\rho} \arrow[r, two heads]       & T_{\rho} \arrow[r, hook]               & {\prod_{\mu<\rho} \{0,1\}}                        
+\end{tikzcd}.
+\end{center}
+%
+%If $ U = \emptyset $,
+%then the map $ T\to T _{\rho} $ is an isomorphism, and
+%$ \mathrm{Cont}(T, \mathbb{Z})\simeq \mathrm{Cont}(T _{\rho}, \mathbb{Z}) $.
+%The set $ \mathscr{E}_{\rho, T _{\rho}} $ is a basis of $ \mathrm{Cont}(T _{\rho}, \mathbb{Z}) $ by induction hypothesis.
+%In this case the function $ e _{\lambda, T, \rho} $ is a function on $ T _{\rho} $, and thus a linear combination of elements
+%of the form $ e _{\rho, T _{\rho}, \mu} $ for $ \mu < \rho $.
+%So $ \mathscr{E}_{\lambda, T} $ does not contain products involving $ e _{\lambda, T, \rho} $.
+%But then $ \mathscr{E}_{\lambda, T} $ is equal to the image of $ \mathscr{E}_{\rho, T _{\rho}} $, and is thus a basis of
+%$ \mathrm{Cont}(T, \mathbb{Z}) $.
+%
+%Suppose that $ U $ is not empty.
+The diagram
+\begin{equation*}
+U \rightrightarrows T  \to T _{\rho}
+\end{equation*}
+is a colimit diagram in $ \mathsf{Top} $.
+The functor $ \mathrm{Cont}(-, \mathbb{Z}) $ takes colimit in $ \mathsf{Top} $
+to limits in $ \mathsf{Ab} $, so the sequence
+\begin{equation*}
+0\to \mathrm{Cont}(T _{\rho}, \mathbb{Z}) \to \mathrm{Cont}(T, \mathbb{Z})\to \mathrm{Cont}(U, \mathbb{Z})
+\end{equation*}
+is exact, where the last map takes $ f:T\to \mathbb{Z} $ to $ \gamma _{1}(f) - \gamma _{0}(f) $, where $ \gamma _{i} $
+is the precomposition with the map $ U \to T ^{i}_{\rho}\to T ^{0}_{\rho}\coprod T ^{1}_{\rho} \simeq T $.
+The last map is also surjective by Lemma \ref{condensed:profinite:extend-loc-const-from-closed}.
+Then the sequence
+\begin{equation*}
+0\to \mathrm{Cont}(T _{\rho}, \mathbb{Z}) \to \mathrm{Cont}(T, \mathbb{Z})\to \mathrm{Cont}(U, \mathbb{Z})\to 0
+\end{equation*}
+is exact.
+
+The set $ \mathscr{E}_{\rho, T _{\rho}} $ is a basis of $ \mathrm{Cont}(T _{\rho}, \mathbb{Z}) $ by induction hypothesis.
+The elements of $ \mathscr{E}_{\lambda, T} $ who are not in the image of $ \mathscr{E}_{\rho, T _{\rho}} $
+are precisely those products whose first factor is $ e _{\lambda, T, \rho} $.
+Consider the element $ E _{\lambda, T, (\rho, \mu _{2}, \ldots, \mu _{r})} \in \mathrm{Cont}(T, \mathbb{Z})$,
+where $ (\rho, \mu _{2}, \ldots, \mu _{r})\in \mathcal{S}(\lambda) $.
+Its image in $ \mathrm{Cont}(U, \mathbb{Z}) $ is
+\begin{equation*}
+\gamma _{1}(e _{\lambda, T, \rho})\gamma _{1}(e _{\lambda, T, \mu _{2}})\cdots \gamma _{1}(e _{\lambda, T, \mu _{r}})
+- \gamma _{0}(e _{\lambda, T, \rho})\gamma _{0}(e _{\lambda, T, \mu _{2}})\cdots \gamma _{0}(e _{\lambda, T, \mu _{r}}).
+\end{equation*}
+But $ e _{\lambda, T, \rho} $ is $ 0 $ on $ T ^{0} $ and $ 1 $ on $ T ^{1} $,
+so $ \gamma _{0}(e _{\lambda, T, \rho}) = 0 $ and $ \gamma _{1}(e _{\lambda, T, \rho}) = 1 $.
+Then the image of $ E _{\lambda, T, (\rho, \mu _{2}, \ldots, \mu _{r})} $ in $ \mathrm{Cont}(U, \mathbb{Z}) $ is
+\begin{equation*}
+\gamma _{1}(e _{\lambda, T, \mu _{2}})\cdots \gamma _{1}(e _{\lambda, T, \mu _{r}}).
+\end{equation*}
+For every $ \mu< \rho $, the map 
+\begin{equation*}
+U\to T ^{1}_{\rho}\to T ^{0}_{\rho}\coprod T ^{1}_{\rho}\to T \to \prod _{\lambda} \{0, 1\}\xrightarrow{\text{coordinate }\mu} \{0, 1\}
+\end{equation*}
+and the map
+\begin{equation*}
+U\to T _{\rho} \to \prod _{\rho} \{0, 1\}\xrightarrow{\text{coordinate }\mu} \{0, 1\}
+\end{equation*}
+are the same,
+and consequently $ \gamma _{1}(e _{\lambda, T, \mu}) = e _{\rho, U, \mu} $.
+In particular, the image of $ E _{\lambda, T, (\rho, \mu _{2}, \ldots, \mu _{r})} $
+in $ \mathrm{Cont}(U, \mathbb{Z}) $ is $ E _{\rho, U, (\mu _{2}, \ldots, \mu _{r})} $.
+
+Suppose that for some $ (\rho, \mu _{2}, \ldots, \mu _{r}) $, the element 
+$ E _{\lambda, T, (\rho, \mu _{2}, \ldots, \mu _{r})} $ is the $ \mathbb{Z} $-linear combination
+\begin{equation*}
+\sum _{j=1}^{n} a _{j} E _{\lambda, T, s _{j}}
+\end{equation*}
+where each $ s _{j} \in \mathscr{S}(\lambda) $ is strictly less than $ (\rho, \mu _{1}, \ldots, \mu _{r}) $.
+Then the linear relation persists under the map $ \mathrm{Cont}(T, \mathbb{Z})\to \mathrm{Cont}(U, \mathbb{Z}) $, while
+the elements $ E _{\lambda, T, s} $ where $ s $ does not start with $ \rho $ are sent to $ 0 $.
+Thus $ E _{\rho, U, (\mu _{2}, \ldots, \mu _{r})} $ is a linear combination of various $ E _{\rho, U, s'} $
+for $ s'\in \mathcal{S}(\rho), s' < (\mu _{2}, \ldots, \mu _{r}) $.
+
+Conversely, suppose that for some $ (\mu _{1}, \ldots, \mu _{r})\in \mathcal{S}(\rho) $, the element
+$ E _{\rho, U, (\mu _{1}, \ldots, \mu _{r})} $ is a linear combination
+\begin{equation*}
+\sum _{j=1}^{n} a _{j} E _{\rho, U, s _{j}}
+\end{equation*}
+where each $ s _{j}\in \mathscr{S}(\rho) $ is strictly less than $ (\mu _{1}, \ldots, \mu _{r}) $.
+Then the image of
+\begin{equation*}
+F = E _{\lambda, T, (\rho, \mu _{1}, \ldots, \mu _{r})} - \sum _{j=1}^{n} a _{j} E _{\lambda, T, (\rho, s _{j})}
+\end{equation*}
+(the notation $ (\rho, s _{j}) $ means $ (\rho, \nu _{1}, \ldots, \nu _{r'}) $ where $ s _{j} = (\nu _{1}, \ldots, \nu _{r'}) $)
+in $ \mathrm{Cont}(U, \mathbb{Z}) $ is equal to $ 0 $.
+But then $ F $ lies in the image of $ \mathrm{Cont}(T _{\rho}, \mathbb{Z})\to \mathrm{Cont}(T, \mathbb{Z}) $
+and is thus a linear combination of various $ E _{\lambda, T, s} $ where $ s'\in \mathscr{S}(\lambda) $ does not start with $ \rho $.
+Such an $ s' $ is strictly less than $ (\rho, \mu _{1}, \ldots, \mu _{r}) $.
+Thus $ E _{\lambda, T, (\rho, \mu _{1}, \ldots, \mu _{r})} $ is a linear combination of various $ E _{\lambda, T, s} $
+where $ s < (\rho, \mu _{1}, \ldots, \mu _{r}) $.
+
+Moreover, if two elements $ E _{\lambda, T, (\rho, \mu _{1},\ldots, \mu _{r})} $ and $ E _{\lambda, T, (\rho, \mu'_{1},\ldots,\mu'_{r'})} $
+with $ (\rho,\mu _{1},\ldots,\mu _{r}) > (\rho, \mu'_{1},\ldots,\mu'_{r'}) $ are sent to the same image in $ \mathrm{Cont}(U, \mathbb{Z}) $,
+then $ E _{\lambda, T, (\rho, \mu _{1}, \ldots,\mu _{r})} $ is a linear combination of $ E _{\lambda, R, (\rho, \mu'_{1},\ldots,\mu'_{r'})} $
+and various $ E _{\lambda, T, s} $ where $ s $ does not start with $ \rho $. Thus $ E _{\lambda, T, (\rho, \mu _{1},\ldots, \mu _{r})} $ can not be
+in the set $ \mathscr{E}_{\lambda, T} $.
+In conclusion, the set $ \mathscr{E}_{\lambda, T}\backslash \mathscr{E}_{\rho, T _{\rho}} $
+is sent bijectively to the set $ \mathscr{E}_{\rho, U} $.
+
+Invoking the induction hypothesis $ \mathscr{P}(\rho, U) $,
+the image of $ \mathscr{E}_{\lambda, T}\backslash \mathscr{E}_{\rho, T _{\rho}} $
+is a basis of $ \mathrm{Cont}(U, \mathbb{Z}) $.
+Then the short exact sequence splits, and $ \mathscr{E}_{\lambda, T} $ is a basis of $ \mathrm{Cont}(T, \mathbb{Z}) $.
+This concludes the transfinite induction.
+
+\textbf{Step 3: Apply to $ S $.}
+Choose a well-ordering for the set $ \mathrm{Cont}(S, \mathbb{F}_{2}) $,
+which amounts to a bijection of $ \mathrm{Cont}(S, \mathbb{F}_{2}) $ with an ordinal $ \lambda $.
+The theorem follows from the statement $ \mathscr{P}(\lambda, S) $, thanks to Lemma \ref{condensed:profinite:inj-in-prod-f2}.
+\end{proof}
+
+\begin{remark}
+Asgeirsson in \cite{noebelingformal} constructs a Lean-verified formal proof of Nöbeling's theorem.
+However, be warned that the proof presented here is not (yet) verified by Lean or any other computer-assisted proof checking tool.
+\end{remark}
+
